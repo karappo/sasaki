@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'httparty'
 require 'json'
+require 'net/http'
+require 'uri'
 
 post '/gateway' do
   message = params[:text].gsub(params[:trigger_word], '').strip
@@ -17,7 +19,27 @@ post '/gateway' do
   end
 end
 
+post '/terada/entered' do
+  post_message
+end
+
 def respond_message message
   content_type :json
   {text: message, username: ENV['USER_NAME']}.to_json
+end
+
+def post_message
+  uri = URI.parse(ENV['WEBHOOK_URL'])
+  https = Net::HTTP.new(uri.host, uri.port)
+
+  https.use_ssl = true
+  req = Net::HTTP::Post.new(uri.request_uri)
+
+  req['Content-Type'] = 'application/json' # httpリクエストヘッダの追加
+  payload = {
+    'username' => ENV['USER_NAME'],
+    'text' => 'terada entered the office.'
+  }.to_json
+  req.body = payload # リクエストボデーにJSONをセット
+  res = https.request(req)
 end
