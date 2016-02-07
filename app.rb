@@ -18,5 +18,5 @@ end
 
 def respond_message message
   content_type :json
-  {:text => message}.to_json
+  {text: message, user_name: 'hoge'}.to_json
 end
