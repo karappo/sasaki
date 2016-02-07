@@ -1,5 +1,7 @@
 # Sasaki
 
+[みやもとさん](https://github.com/karappo/miyamoto)と連携して使用する。
+
 IFTTTの[Slack Channel](https://ifttt.com/slack)からのSlackへの投稿は、textなどのデータが取得できなかったため、IFTTTの[Maker Channel](https://ifttt.com/maker)を使ってこのSinatraプロジェクトへリクエストを送信し、このプロジェクトからSlackへ投稿をする。
 
 ## Requests
