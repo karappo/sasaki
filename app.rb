@@ -18,5 +18,5 @@ end
 
 def respond_message message
   content_type :json
-  {text: message, username: 'hoge'}.to_json
+  {text: message, username: ENV['BOT_NAME']}.to_json
 end
