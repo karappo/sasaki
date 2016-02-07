@@ -3,6 +3,8 @@ require 'httparty'
 require 'json'
 require 'net/http'
 require 'uri'
+require 'dotenv'
+Dotenv.load
 
 post '/gateway' do
   message = params[:text].gsub(params[:trigger_word], '').strip

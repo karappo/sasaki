@@ -1,3 +1,4 @@
 .DS_Stroe
 /.bundle
 /vendor
+/.env
