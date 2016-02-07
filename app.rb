@@ -19,7 +19,7 @@ post '/gateway' do
   end
 end
 
-post '/terada/entered' do
+get '/terada/entered' do
   post_message
 end
 
