@@ -6,6 +6,10 @@ require 'uri'
 require 'dotenv'
 Dotenv.load
 
+get '/' do
+ "Hello, I'm Sasaki."
+end
+
 get '/:username/entered' do
   post_message "#{params[:username]} entered the office."
 end
